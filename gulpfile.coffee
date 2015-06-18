@@ -29,11 +29,11 @@ gulp.task("assets-copy", ->
 
 # .scssのコンパイル
 gulp.task("sass", ->
-  $.rubySass("./src/sass")
-  .pipe($.autoprefixer(
+  $.rubySass("./src/sass",
     style: "expanded"
     stopOnError: true
-  ))
+  )
+  .pipe($.autoprefixer())
   .pipe(gulp.dest("./dist/css"))
   .pipe(browserSync.stream())
 )
